@@ -15,7 +15,7 @@ DASHBOARD_HTML = r"""
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Global Injectable Regenerative Therapy for ED Market (2025–2035)</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
@@ -23,12 +23,18 @@ DASHBOARD_HTML = r"""
             --burgundy-dark: #3A071D;
             --burgundy: #5B0F2E;
             --burgundy-soft: #8A2E4D;
+            --burgundy-mid: #A94D6A;
             --burgundy-light: #F3E7ED;
+            --rose: #D9A8BC;
+            --rose-soft: #F8EEF3;
             --ink: #1E293B;
             --muted: #64748B;
             --line: #E2E8F0;
             --page: #F8FAFC;
             --white: #FFFFFF;
+            --green: #1F7A53;
+            --amber: #A16207;
+            --red: #A8324A;
         }
 
         * {
@@ -51,8 +57,8 @@ DASHBOARD_HTML = r"""
         }
 
         .sidebar {
-            width: 275px;
-            min-width: 275px;
+            width: 292px;
+            min-width: 292px;
             height: 100vh;
             background: linear-gradient(180deg, var(--burgundy-dark) 0%, var(--burgundy) 100%);
             color: white;
@@ -71,7 +77,7 @@ DASHBOARD_HTML = r"""
             font-size: 21px;
             line-height: 1.15;
             margin: 0;
-            font-weight: 800;
+            font-weight: 850;
         }
 
         .brand p {
@@ -80,11 +86,11 @@ DASHBOARD_HTML = r"""
             letter-spacing: 0.13em;
             text-transform: uppercase;
             color: rgba(255,255,255,0.72);
-            font-weight: 700;
+            font-weight: 750;
         }
 
         .nav {
-            padding: 16px 0;
+            padding: 14px 0;
             overflow-y: auto;
         }
 
@@ -94,8 +100,8 @@ DASHBOARD_HTML = r"""
             border: 0;
             background: transparent;
             color: rgba(255,255,255,0.75);
-            padding: 15px 22px;
-            font-size: 14px;
+            padding: 13px 22px;
+            font-size: 13.5px;
             cursor: pointer;
             border-left: 5px solid transparent;
             transition: 0.2s ease;
@@ -110,7 +116,7 @@ DASHBOARD_HTML = r"""
             background: rgba(255,255,255,0.14);
             color: white;
             border-left-color: #F6D6E5;
-            font-weight: 750;
+            font-weight: 760;
         }
 
         .sidebar-footer {
@@ -132,9 +138,9 @@ DASHBOARD_HTML = r"""
         }
 
         .page {
-            max-width: 1180px;
+            max-width: 1220px;
             margin: 0 auto;
-            padding: 34px 36px 80px 36px;
+            padding: 34px 36px 90px 36px;
         }
 
         .content-section {
@@ -175,12 +181,12 @@ DASHBOARD_HTML = r"""
             margin: 0;
             font-size: 38px;
             line-height: 1.08;
-            font-weight: 850;
-            max-width: 980px;
+            font-weight: 880;
+            max-width: 1000px;
         }
 
         .hero p {
-            max-width: 980px;
+            max-width: 1000px;
             margin: 16px 0 0 0;
             color: rgba(255,255,255,0.88);
             font-size: 17px;
@@ -196,7 +202,7 @@ DASHBOARD_HTML = r"""
             color: var(--burgundy);
             font-size: 32px;
             line-height: 1.15;
-            font-weight: 850;
+            font-weight: 860;
         }
 
         .header p {
@@ -204,7 +210,7 @@ DASHBOARD_HTML = r"""
             color: var(--muted);
             font-size: 17px;
             line-height: 1.55;
-            max-width: 980px;
+            max-width: 1020px;
         }
 
         .card {
@@ -223,11 +229,19 @@ DASHBOARD_HTML = r"""
             font-size: 15px;
         }
 
+        .card.compact {
+            padding: 20px;
+        }
+
         .kpi-grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 18px;
             margin-bottom: 24px;
+        }
+
+        .kpi-grid.four {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
         }
 
         .kpi {
@@ -236,7 +250,7 @@ DASHBOARD_HTML = r"""
             border-radius: 20px;
             padding: 23px;
             box-shadow: 0 12px 34px rgba(15, 23, 42, 0.06);
-            min-height: 145px;
+            min-height: 142px;
         }
 
         .kpi.primary {
@@ -245,12 +259,17 @@ DASHBOARD_HTML = r"""
             border: 0;
         }
 
+        .kpi.secondary {
+            background: linear-gradient(135deg, #FFFFFF 0%, var(--rose-soft) 100%);
+            border-color: #EBD1DC;
+        }
+
         .kpi-label {
-            font-size: 12px;
+            font-size: 11.5px;
             text-transform: uppercase;
             letter-spacing: 0.10em;
             color: var(--burgundy-soft);
-            font-weight: 800;
+            font-weight: 830;
             margin-bottom: 8px;
         }
 
@@ -259,9 +278,9 @@ DASHBOARD_HTML = r"""
         }
 
         .kpi-value {
-            font-size: 36px;
+            font-size: 34px;
             line-height: 1.05;
-            font-weight: 850;
+            font-weight: 880;
             color: var(--burgundy);
             margin-bottom: 10px;
         }
@@ -282,7 +301,7 @@ DASHBOARD_HTML = r"""
 
         .list-title {
             font-size: 20px;
-            font-weight: 820;
+            font-weight: 840;
             color: var(--burgundy);
             margin: 0 0 16px 0;
         }
@@ -299,6 +318,7 @@ DASHBOARD_HTML = r"""
             margin-bottom: 16px;
             color: #334155;
             line-height: 1.58;
+            font-size: 14.5px;
         }
 
         .imperatives li:last-child {
@@ -309,6 +329,18 @@ DASHBOARD_HTML = r"""
             color: var(--burgundy);
             font-weight: 900;
             margin-top: 1px;
+        }
+
+        .two-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .three-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
         }
 
         .funnel-panel {
@@ -352,7 +384,7 @@ DASHBOARD_HTML = r"""
         .funnel-step h4 {
             margin: 0 0 4px 0;
             font-size: 15px;
-            font-weight: 800;
+            font-weight: 820;
         }
 
         .funnel-step p {
@@ -363,7 +395,7 @@ DASHBOARD_HTML = r"""
 
         .funnel-value {
             font-size: 19px;
-            font-weight: 850;
+            font-weight: 860;
             white-space: nowrap;
             padding-left: 18px;
         }
@@ -374,19 +406,7 @@ DASHBOARD_HTML = r"""
         .funnel-4 { width: 59%; margin-left: auto; background: var(--burgundy-soft); }
         .funnel-5 { width: 43%; margin-left: auto; background: #A43A5D; }
 
-        .two-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 18px;
-        }
-
-        .three-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 18px;
-        }
-
-        .geo-card {
+        .geo-card, .scenario-card, .endpoint-card, .roadmap-card {
             background: white;
             border: 1px solid var(--line);
             border-radius: 20px;
@@ -443,14 +463,14 @@ DASHBOARD_HTML = r"""
             color: var(--muted);
             text-transform: uppercase;
             letter-spacing: 0.10em;
-            font-weight: 800;
+            font-weight: 820;
             margin-bottom: 5px;
         }
 
         .geo-value {
             font-size: 20px;
             color: var(--burgundy);
-            font-weight: 850;
+            font-weight: 860;
         }
 
         .geo-text {
@@ -464,6 +484,10 @@ DASHBOARD_HTML = r"""
             width: 100%;
             height: 420px;
             max-height: 520px;
+        }
+
+        .chart-container.small {
+            height: 360px;
         }
 
         .note {
@@ -509,6 +533,129 @@ DASHBOARD_HTML = r"""
             color: var(--burgundy);
         }
 
+        .timeline {
+            position: relative;
+            padding-left: 18px;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            top: 8px;
+            bottom: 8px;
+            left: 8px;
+            width: 3px;
+            background: linear-gradient(180deg, var(--burgundy), var(--rose));
+            border-radius: 999px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 0 0 18px 28px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -17px;
+            top: 4px;
+            width: 16px;
+            height: 16px;
+            background: var(--burgundy);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--rose);
+            border-radius: 50%;
+        }
+
+        .timeline-card {
+            background: white;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 16px 18px;
+            box-shadow: 0 10px 26px rgba(15, 23, 42, 0.05);
+        }
+
+        .timeline-date {
+            color: var(--burgundy-soft);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            font-weight: 850;
+            margin-bottom: 5px;
+        }
+
+        .timeline-title {
+            color: var(--burgundy);
+            font-size: 17px;
+            font-weight: 850;
+            margin-bottom: 5px;
+        }
+
+        .timeline-text {
+            color: #475569;
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 999px;
+            padding: 8px 12px;
+            background: var(--rose-soft);
+            color: var(--burgundy);
+            border: 1px solid #E7C7D4;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .scenario-card {
+            padding: 22px;
+        }
+
+        .scenario-title {
+            font-size: 19px;
+            color: var(--burgundy);
+            font-weight: 850;
+            margin-bottom: 8px;
+        }
+
+        .scenario-value {
+            font-size: 34px;
+            color: var(--burgundy);
+            font-weight: 880;
+            margin-bottom: 8px;
+        }
+
+        .scenario-text {
+            color: #475569;
+            line-height: 1.55;
+            font-size: 14px;
+        }
+
+        .endpoint-card {
+            padding: 20px;
+        }
+
+        .endpoint-title {
+            color: var(--burgundy);
+            font-weight: 850;
+            font-size: 17px;
+            margin-bottom: 9px;
+        }
+
+        .endpoint-text {
+            color: #475569;
+            font-size: 14px;
+            line-height: 1.58;
+        }
+
         .footer-note {
             margin-top: 24px;
             padding: 18px 20px;
@@ -520,7 +667,7 @@ DASHBOARD_HTML = r"""
             line-height: 1.6;
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 980px) {
             body {
                 flex-direction: column;
                 overflow: auto;
@@ -533,6 +680,10 @@ DASHBOARD_HTML = r"""
                 height: auto;
             }
 
+            .brand {
+                padding: 20px 20px 16px 20px;
+            }
+
             .nav {
                 display: flex;
                 overflow-x: auto;
@@ -543,7 +694,8 @@ DASHBOARD_HTML = r"""
                 white-space: nowrap;
                 border-left: 0;
                 border-bottom: 4px solid transparent;
-                padding: 12px 16px;
+                padding: 12px 14px;
+                font-size: 13px;
             }
 
             .nav button.nav-active {
@@ -572,7 +724,7 @@ DASHBOARD_HTML = r"""
                 padding: 26px 24px;
             }
 
-            .kpi-grid, .three-grid, .two-grid {
+            .kpi-grid, .kpi-grid.four, .three-grid, .two-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -582,7 +734,7 @@ DASHBOARD_HTML = r"""
             }
 
             .chart-container {
-                height: 330px;
+                height: 340px;
             }
         }
     </style>
@@ -591,26 +743,31 @@ DASHBOARD_HTML = r"""
 <body>
     <aside class="sidebar">
         <div class="brand">
-            <h1>EliteCell Bio<br>Market Preview</h1>
+            <h1>EliteCell Bio<br>Market Cockpit</h1>
             <p>Strategic Market Report</p>
         </div>
 
         <nav class="nav">
             <button onclick="navigate('executive')" id="nav-executive" class="nav-active">Executive Outlook</button>
+            <button onclick="navigate('snapshot')" id="nav-snapshot">Market Size & Capture</button>
             <button onclick="navigate('funnel')" id="nav-funnel">Patient Funnel</button>
+            <button onclick="navigate('country')" id="nav-country">Country Funnel Deep Dive</button>
             <button onclick="navigate('geography')" id="nav-geography">Geographic Strategy</button>
             <button onclick="navigate('forecast')" id="nav-forecast">Revenue Forecast</button>
+            <button onclick="navigate('clinical')" id="nav-clinical">Clinical Endpoint Strategy</button>
             <button onclick="navigate('competition')" id="nav-competition">Competitive Landscape</button>
+            <button onclick="navigate('roadmap')" id="nav-roadmap">Roadmap & Scenario Risk</button>
         </nav>
 
         <div class="sidebar-footer">
-            Built as a controlled preview. Full study includes detailed country forecasts, assumptions, evidence mapping, and commercialization strategy.
+            Controlled boardroom preview. Full study includes detailed country forecasts, source-backed assumptions, clinical evidence, regulatory mapping, and commercialization strategy.
         </div>
     </aside>
 
     <main>
         <div class="page">
 
+            <!-- Executive -->
             <section id="executive" class="content-section active">
                 <div class="hero">
                     <div class="eyebrow">Global Injectable Regenerative Therapy for ED Market | 2025–2035</div>
@@ -623,19 +780,15 @@ DASHBOARD_HTML = r"""
 
                 <div class="card">
                     <p>
-                        This preview outlines the core strategic thesis for EliteCell Bio. The erectile dysfunction market is entering a
-                        second-line innovation phase where the most valuable opportunity is not broad competition with low-cost generic
-                        PDE5 inhibitors, but a focused intervention for patients who remain insufficiently served after oral therapy.
-                        Injectable regenerative medicine can sit between symptomatic drug failure and end-stage surgical implants,
-                        provided it is positioned through specialist channels and supported by formal clinical evidence.
+                        This dashboard summarizes the strategic thesis for EliteCell Bio. The erectile dysfunction market is entering a second-line innovation phase where the most attractive opportunity is not broad competition with low-cost generic PDE5 inhibitors, but a focused intervention for patients who remain insufficiently served after oral therapy. Injectable regenerative medicine can sit between symptomatic drug failure and end-stage surgical implants, provided it is positioned through specialist channels and supported by formal clinical evidence.
                     </p>
                 </div>
 
                 <div class="kpi-grid">
                     <div class="kpi primary">
-                        <div class="kpi-label">Global 2035 Revenue</div>
-                        <div class="kpi-value">$25.7 Mn</div>
-                        <div class="kpi-note">Base-case capture for EliteCell Bio across launched and expansion markets.</div>
+                        <div class="kpi-label">EliteCell 2035 Revenue</div>
+                        <div class="kpi-value">$25.75 Mn</div>
+                        <div class="kpi-note">Base-case capture across Taiwan, China, United States, and expansion markets.</div>
                     </div>
 
                     <div class="kpi">
@@ -645,9 +798,9 @@ DASHBOARD_HTML = r"""
                     </div>
 
                     <div class="kpi">
-                        <div class="kpi-label">U.S. Premium Price</div>
-                        <div class="kpi-value">$5,100</div>
-                        <div class="kpi-note">Illustrative 2035 net realization per treatment cycle in the premium U.S. setting.</div>
+                        <div class="kpi-label">2035 U.S. Revenue Mix</div>
+                        <div class="kpi-value">71.1%</div>
+                        <div class="kpi-note">The United States is the primary valuation and monetization anchor.</div>
                     </div>
                 </div>
 
@@ -656,7 +809,7 @@ DASHBOARD_HTML = r"""
                     <ul class="imperatives">
                         <li>
                             <span class="arrow">►</span>
-                            <span><strong>Target the PDE5 failure pool:</strong> Avoid broad ED-market inflation. Focus on organic moderate-to-severe ED where oral drugs fail and willingness to escalate is highest.</span>
+                            <span><strong>Target the PDE5 failure pool:</strong> Avoid broad ED-market inflation. Focus on organic moderate-to-severe ED where oral therapies fail and willingness to escalate is highest.</span>
                         </li>
                         <li>
                             <span class="arrow">►</span>
@@ -664,12 +817,102 @@ DASHBOARD_HTML = r"""
                         </li>
                         <li>
                             <span class="arrow">►</span>
-                            <span><strong>Differentiate with regulated evidence:</strong> Anchor adoption in clear clinical endpoints and formal regulatory positioning to separate EliteCell Bio from unregulated regenerative wellness offerings.</span>
+                            <span><strong>Differentiate with regulated evidence:</strong> Anchor adoption in clear clinical endpoints, CMC quality, and formal regulatory positioning to separate EliteCell Bio from unregulated regenerative wellness offerings.</span>
                         </li>
                     </ul>
                 </div>
             </section>
 
+            <!-- Market Snapshot -->
+            <section id="snapshot" class="content-section">
+                <div class="header">
+                    <h2>Market Size & Capture Snapshot</h2>
+                    <p>The 2035 opportunity is attractive because the total regenerative ED category expands rapidly, while EliteCell Bio can capture a focused, premium, specialist-channel share.</p>
+                </div>
+
+                <div class="kpi-grid four">
+                    <div class="kpi primary">
+                        <div class="kpi-label">Total Market 2035</div>
+                        <div class="kpi-value">$137.65 Mn</div>
+                        <div class="kpi-note">Global regenerative ED therapy revenue across all players.</div>
+                    </div>
+
+                    <div class="kpi secondary">
+                        <div class="kpi-label">EliteCell Revenue 2035</div>
+                        <div class="kpi-value">$25.75 Mn</div>
+                        <div class="kpi-note">Base-case realized revenue from launched markets.</div>
+                    </div>
+
+                    <div class="kpi">
+                        <div class="kpi-label">Capture Share</div>
+                        <div class="kpi-value">18.7%</div>
+                        <div class="kpi-note">Weighted average EliteCell capture share across markets.</div>
+                    </div>
+
+                    <div class="kpi">
+                        <div class="kpi-label">U.S. Contribution</div>
+                        <div class="kpi-value">71.1%</div>
+                        <div class="kpi-note">The U.S. dominates due to premium pricing and higher commercial reach.</div>
+                    </div>
+                </div>
+
+                <div class="two-grid">
+                    <div class="card">
+                        <h3 class="list-title">2035 EliteCell Revenue Mix</h3>
+                        <div class="chart-container small">
+                            <canvas id="mixChart"></canvas>
+                        </div>
+                        <div class="note">Revenue mix by geography, based on EliteCell Bio 2035 revenue contribution.</div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="list-title">Total Market vs EliteCell Capture</h3>
+                        <div class="chart-container small">
+                            <canvas id="marketCaptureChart"></canvas>
+                        </div>
+                        <div class="note">Comparison of total regenerative ED market and EliteCell captured revenue.</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="list-title">Key Global Forecast Metrics | 2035</h3>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Metric</th>
+                                    <th>Value</th>
+                                    <th>Strategic Interpretation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Total Regenerative ED Market Revenue</td>
+                                    <td>$137.65 Mn</td>
+                                    <td>Represents the broader emerging category, not only EliteCell Bio revenue.</td>
+                                </tr>
+                                <tr>
+                                    <td>EliteCell Bio Global Revenue</td>
+                                    <td>$25.75 Mn</td>
+                                    <td>Base-case realized opportunity after market launch, capture, and adoption assumptions.</td>
+                                </tr>
+                                <tr>
+                                    <td>EliteCell Weighted Capture Share</td>
+                                    <td>~18.7%</td>
+                                    <td>Indicates meaningful but not unrealistic penetration in a specialist-led procedure market.</td>
+                                </tr>
+                                <tr>
+                                    <td>U.S. Revenue Contribution</td>
+                                    <td>71.1%</td>
+                                    <td>Confirms that the United States is the critical premium-value anchor.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Patient Funnel -->
             <section id="funnel" class="content-section">
                 <div class="header">
                     <h2>Patient Funnel: Defining the Reachable Market</h2>
@@ -678,10 +921,7 @@ DASHBOARD_HTML = r"""
 
                 <div class="card">
                     <p>
-                        The market must be sized through a disciplined patient funnel. The total male 40+ population is reduced
-                        sequentially by ED prevalence, diagnosis, treatment-seeking behavior, PDE5 usage, inadequate response,
-                        clinical eligibility, and commercial reach. This prevents unrealistic TAM inflation and isolates the
-                        patient pool most relevant for injectable regenerative therapy.
+                        The market must be sized through a disciplined patient funnel. The total male 40+ population is reduced sequentially by ED prevalence, diagnosis, treatment-seeking behavior, PDE5 usage, inadequate response, clinical eligibility, and commercial reach. This prevents unrealistic TAM inflation and isolates the patient pool most relevant for injectable regenerative therapy.
                     </p>
                 </div>
 
@@ -755,14 +995,88 @@ DASHBOARD_HTML = r"""
                     <div class="card">
                         <h3 class="list-title">Funnel Conversion Risk</h3>
                         <p>
-                            Without specialist urology channels and proven clinical durability, drop-off between PDE5 inadequate
-                            responders and actual treated patients can remain high. The commercial unlock depends on evidence,
-                            physician confidence, and willingness to pay for a procedure-led intervention.
+                            Without specialist urology channels and proven clinical durability, drop-off between PDE5 inadequate responders and actual treated patients can remain high. The commercial unlock depends on evidence, physician confidence, and willingness to pay for a procedure-led intervention.
                         </p>
                     </div>
                 </div>
             </section>
 
+            <!-- Country Funnel -->
+            <section id="country" class="content-section">
+                <div class="header">
+                    <h2>Country Funnel Deep Dive</h2>
+                    <p>China has the largest patient pool, but the United States provides the strongest commercial conversion and pricing potential.</p>
+                </div>
+
+                <div class="card">
+                    <p>
+                        The three priority markets have very different demand structures. Taiwan provides a compact validation market, China provides scale, and the United States provides the highest monetization. The critical comparison is not only total ED burden, but how much of that burden converts into diagnosed, treated, PDE5-exposed, and non-responder patients.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3 class="list-title">2035 Patient Funnel by Country | Mn Patients</h3>
+                    <div class="chart-container">
+                        <canvas id="countryFunnelChart"></canvas>
+                    </div>
+                    <div class="note">Values shown in million patients. Funnel reflects progression from ED burden to PDE5 inadequate responders.</div>
+                </div>
+
+                <div class="card">
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Funnel Metric | 2035</th>
+                                    <th>Taiwan</th>
+                                    <th>China</th>
+                                    <th>United States</th>
+                                    <th>Strategic Meaning</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Total ED Burden</td>
+                                    <td>2.66 Mn</td>
+                                    <td>125.80 Mn</td>
+                                    <td>35.95 Mn</td>
+                                    <td>China dominates gross demand, but not necessarily revenue.</td>
+                                </tr>
+                                <tr>
+                                    <td>Diagnosed ED Patients</td>
+                                    <td>0.93 Mn</td>
+                                    <td>28.93 Mn</td>
+                                    <td>17.98 Mn</td>
+                                    <td>U.S. diagnosis conversion is structurally stronger.</td>
+                                </tr>
+                                <tr>
+                                    <td>Treated ED Patients</td>
+                                    <td>0.63 Mn</td>
+                                    <td>16.78 Mn</td>
+                                    <td>13.48 Mn</td>
+                                    <td>Treatment activity matters more than prevalence alone.</td>
+                                </tr>
+                                <tr>
+                                    <td>PDE5-Treated Patients</td>
+                                    <td>0.52 Mn</td>
+                                    <td>13.43 Mn</td>
+                                    <td>11.33 Mn</td>
+                                    <td>PDE5 exposure creates the failure pool for EliteCell Bio.</td>
+                                </tr>
+                                <tr>
+                                    <td>PDE5 Inadequate Responders</td>
+                                    <td>0.166 Mn</td>
+                                    <td>4.30 Mn</td>
+                                    <td>3.62 Mn</td>
+                                    <td>Core theoretical target pool before eligibility and commercial reach filters.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Geography -->
             <section id="geography" class="content-section">
                 <div class="header">
                     <h2>Geographic Strategy: Sequencing Launch and Scale</h2>
@@ -771,9 +1085,7 @@ DASHBOARD_HTML = r"""
 
                 <div class="card">
                     <p>
-                        Geographic expansion should be sequenced rather than broad-based. Taiwan serves as the validation market,
-                        China offers patient-volume scale through partnership, and the United States provides the highest-value
-                        premium market if evidence and regulatory execution are strong.
+                        Geographic expansion should be sequenced rather than broad-based. Taiwan serves as the validation market, China offers patient-volume scale through partnership, and the United States provides the highest-value premium market if evidence and regulatory execution are strong.
                     </p>
                 </div>
 
@@ -843,6 +1155,7 @@ DASHBOARD_HTML = r"""
                 </div>
             </section>
 
+            <!-- Forecast -->
             <section id="forecast" class="content-section">
                 <div class="header">
                     <h2>Revenue Forecast | 2025–2035</h2>
@@ -851,9 +1164,7 @@ DASHBOARD_HTML = r"""
 
                 <div class="card">
                     <p style="margin-bottom: 18px;">
-                        The forecast reflects staged launch sequencing. Pre-launch revenue is zero by design. The largest inflection
-                        occurs after anticipated U.S. entry, where higher net realization per cycle materially changes the global
-                        revenue trajectory.
+                        The forecast reflects staged launch sequencing. Pre-launch revenue is zero by design. The largest inflection occurs after anticipated U.S. entry, where higher net realization per cycle materially changes the global revenue trajectory.
                     </p>
 
                     <div class="chart-container">
@@ -867,6 +1178,52 @@ DASHBOARD_HTML = r"""
 
                 <div class="two-grid">
                     <div class="card">
+                        <h3 class="list-title">EliteCell Revenue | US$ Mn</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Geography</th>
+                                    <th>2027</th>
+                                    <th>2030</th>
+                                    <th>2035</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Taiwan</td>
+                                    <td>0.14</td>
+                                    <td>0.73</td>
+                                    <td>1.87</td>
+                                </tr>
+                                <tr>
+                                    <td>China</td>
+                                    <td>0.00</td>
+                                    <td>0.42</td>
+                                    <td>2.42</td>
+                                </tr>
+                                <tr>
+                                    <td>United States</td>
+                                    <td>0.00</td>
+                                    <td>0.00</td>
+                                    <td>18.32</td>
+                                </tr>
+                                <tr>
+                                    <td>Expansion Markets</td>
+                                    <td>0.00</td>
+                                    <td>0.00</td>
+                                    <td>3.14</td>
+                                </tr>
+                                <tr>
+                                    <td>Global EliteCell Total</td>
+                                    <td>0.14</td>
+                                    <td>1.14</td>
+                                    <td>25.75</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card">
                         <h3 class="list-title">Key Revenue Drivers</h3>
                         <ul class="imperatives">
                             <li><span class="arrow">►</span><span><strong>Pricing durability:</strong> Maintaining premium procedure-led economics versus generic oral therapies.</span></li>
@@ -874,17 +1231,93 @@ DASHBOARD_HTML = r"""
                             <li><span class="arrow">►</span><span><strong>Retreatment mechanics:</strong> Revenue expansion as early adopters return for subsequent cycles.</span></li>
                         </ul>
                     </div>
+                </div>
+            </section>
 
-                    <div class="card">
-                        <h3 class="list-title">Sensitivity & Risks</h3>
-                        <ul class="imperatives">
-                            <li><span class="arrow">►</span><span><strong>Downside case:</strong> Slower adoption, weaker durability, lower pricing, or regulatory delay.</span></li>
-                            <li><span class="arrow">►</span><span><strong>Upside case:</strong> Faster evidence acceptance, broader eligibility, stronger private-pay conversion, and faster U.S. uptake.</span></li>
-                        </ul>
+            <!-- Clinical -->
+            <section id="clinical" class="content-section">
+                <div class="header">
+                    <h2>Clinical Evidence & Endpoint Strategy</h2>
+                    <p>Premium pricing and physician adoption depend on functional evidence, objective vascular support, and durability beyond early response.</p>
+                </div>
+
+                <div class="card">
+                    <p>
+                        EliteCell Bio’s market position should be built around tissue restoration rather than transient vasodilation. The strongest clinical and commercial argument comes from demonstrating improvement in validated erectile function endpoints, objective vascular measures, and 12-month durability that justifies a premium procedure-led intervention.
+                    </p>
+                </div>
+
+                <div class="three-grid">
+                    <div class="endpoint-card">
+                        <div class="endpoint-title">IIEF-EF Score</div>
+                        <div class="endpoint-text">Core erectile-function benchmark and the primary regulatory-facing measure for functional improvement.</div>
+                    </div>
+                    <div class="endpoint-card">
+                        <div class="endpoint-title">Erection Hardness Score</div>
+                        <div class="endpoint-text">Patient-centric rigidity measure that translates more easily into physician and patient communication.</div>
+                    </div>
+                    <div class="endpoint-card">
+                        <div class="endpoint-title">SEP-2 / SEP-3</div>
+                        <div class="endpoint-text">Real-world utility measures linked to successful penetration and completion of intercourse.</div>
+                    </div>
+                    <div class="endpoint-card">
+                        <div class="endpoint-title">Penile Doppler PSV</div>
+                        <div class="endpoint-text">Objective vascular-flow evidence supporting the restorative mechanism and premium positioning.</div>
+                    </div>
+                    <div class="endpoint-card">
+                        <div class="endpoint-title">12-Month Durability</div>
+                        <div class="endpoint-text">The critical bridge between clinical proof and pricing power; durability supports retreatment logic.</div>
+                    </div>
+                    <div class="endpoint-card">
+                        <div class="endpoint-title">Potency / CMC Assays</div>
+                        <div class="endpoint-text">Lot-to-lot consistency and potency assurance are essential for FDA, TFDA, and premium-market confidence.</div>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top:24px;">
+                    <h3 class="list-title">Endpoint-to-Commercial Implication</h3>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Clinical Outcome Measure</th>
+                                    <th>Significance</th>
+                                    <th>Commercial Implication</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>IIEF-EF Score</td>
+                                    <td>Core erectile capacity</td>
+                                    <td>Primary regulatory benchmark</td>
+                                </tr>
+                                <tr>
+                                    <td>Erection Hardness Score</td>
+                                    <td>Functional rigidity</td>
+                                    <td>Patient-centric marketing metric</td>
+                                </tr>
+                                <tr>
+                                    <td>SEP-2 / SEP-3</td>
+                                    <td>Successful penetration / completion</td>
+                                    <td>Measures real-world utility</td>
+                                </tr>
+                                <tr>
+                                    <td>Penile Doppler PSV</td>
+                                    <td>Objective vascular flow</td>
+                                    <td>Supports the restorative claim</td>
+                                </tr>
+                                <tr>
+                                    <td>12-Month Durability</td>
+                                    <td>Long-term functional persistence</td>
+                                    <td>Justifies procedural premium and retreatment model</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </section>
 
+            <!-- Competition -->
             <section id="competition" class="content-section">
                 <div class="header">
                     <h2>Competitive Landscape & Positioning</h2>
@@ -893,10 +1326,7 @@ DASHBOARD_HTML = r"""
 
                 <div class="card">
                     <p style="margin-bottom: 22px;">
-                        EliteCell Bio’s central challenge is not defeating generic sildenafil or tadalafil. The real competitive
-                        battle is against second-line injections, shockwave therapy, unregulated regenerative wellness clinics, and
-                        surgical implants. A defensible position requires regulated evidence, durability, specialist acceptance, and
-                        clear patient-selection logic.
+                        EliteCell Bio’s central challenge is not defeating generic sildenafil or tadalafil. The real competitive battle is against second-line injections, shockwave therapy, unregulated regenerative wellness clinics, and surgical implants. A defensible position requires regulated evidence, durability, specialist acceptance, and clear patient-selection logic.
                     </p>
 
                     <div class="table-wrap">
@@ -945,67 +1375,364 @@ DASHBOARD_HTML = r"""
                     </div>
                 </div>
 
-                <div class="footer-note">
-                    The full report extends this preview into a detailed country forecast, treatment funnel, regulatory pathway,
-                    competitive benchmark, sensitivity analysis, and commercialization roadmap for EliteCell Bio.
+                <div class="card">
+                    <h3 class="list-title">Competitive Scoring Matrix</h3>
+                    <div class="chart-container small">
+                        <canvas id="competitiveChart"></canvas>
+                    </div>
+                    <div class="note">Directional score: 1 = low, 5 = high. EliteCell differentiation is strongest, but evidence maturity must improve.</div>
                 </div>
             </section>
 
+            <!-- Roadmap -->
+            <section id="roadmap" class="content-section">
+                <div class="header">
+                    <h2>Regulatory Roadmap & Scenario Risk</h2>
+                    <p>Execution depends on sequencing market entry, regulatory engagement, CMC readiness, evidence generation, and downside-risk mitigation.</p>
+                </div>
+
+                <div class="two-grid">
+                    <div class="card">
+                        <h3 class="list-title">Tactical Milestone Roadmap</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-card">
+                                    <div class="timeline-date">2025–2026</div>
+                                    <div class="timeline-title">Taiwan Dual Acts Registration</div>
+                                    <div class="timeline-text">Secure first-market regulatory path and position Taiwan as the validation hub.</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-card">
+                                    <div class="timeline-date">2026–2027</div>
+                                    <div class="timeline-title">Texas Facility DMF Expansion</div>
+                                    <div class="timeline-text">Support global CMC comparability, potency assurance, and premium-market credibility.</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-card">
+                                    <div class="timeline-date">2027–2029</div>
+                                    <div class="timeline-title">Boao Lecheng Entry</div>
+                                    <div class="timeline-text">Accelerate China translation through controlled pilot-zone access and local partnership.</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-card">
+                                    <div class="timeline-date">2028–2030</div>
+                                    <div class="timeline-title">U.S. Pre-IND Meeting</div>
+                                    <div class="timeline-text">Align with FDA CBER on endpoint, CMC, and RMAT / serious-condition positioning.</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-card">
+                                    <div class="timeline-date">2029–2032</div>
+                                    <div class="timeline-title">12-Month Durability Data</div>
+                                    <div class="timeline-text">Justify premium pricing, retreatment assumptions, and specialist-channel adoption.</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-card">
+                                    <div class="timeline-date">2032–2035</div>
+                                    <div class="timeline-title">Expansion Activation</div>
+                                    <div class="timeline-text">Launch in Japan, Korea, EU, and other expansion markets using TFDA / FDA evidence base.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="three-grid" style="grid-template-columns: 1fr; gap:18px;">
+                            <div class="scenario-card">
+                                <div class="scenario-title">Base Case</div>
+                                <div class="scenario-value">$25.75 Mn</div>
+                                <div class="scenario-text">Measured specialist uptake, staged country launches, and successful premium U.S. entry.</div>
+                            </div>
+
+                            <div class="scenario-card">
+                                <div class="scenario-title">Launch Delay Case</div>
+                                <div class="scenario-value">$22.7 Mn</div>
+                                <div class="scenario-text">One-year delay across markets reduces the 2035 revenue position and slows expansion activation.</div>
+                            </div>
+
+                            <div class="scenario-card">
+                                <div class="scenario-title">Commercial Reach Constraint</div>
+                                <div class="scenario-value">$19.3 Mn</div>
+                                <div class="scenario-text">Affordability and channel constraints reduce reachable-patient conversion, especially in scale markets.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="list-title">Sensitivity Drivers</h3>
+                    <div class="chart-container small">
+                        <canvas id="sensitivityChart"></canvas>
+                    </div>
+                    <div class="note">Directional sensitivity score: 1 = low, 5 = very high.</div>
+                </div>
+
+                <div class="card">
+                    <h3 class="list-title">Risk-Mitigation Matrix</h3>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Risk Factor</th>
+                                    <th>Impact on Forecast</th>
+                                    <th>Mitigation Strategy</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Weak Durability</td>
+                                    <td>Reduces price realization and retreatment logic.</td>
+                                    <td>Prioritize 12- and 24-month clinical follow-up.</td>
+                                </tr>
+                                <tr>
+                                    <td>Physician Skepticism</td>
+                                    <td>Slows specialist adoption and referral formation.</td>
+                                    <td>KOL-led evidence, registry data, and objective vascular endpoints.</td>
+                                </tr>
+                                <tr>
+                                    <td>Regulatory Delay</td>
+                                    <td>Pushes revenue curve and delays U.S. inflection.</td>
+                                    <td>Early engagement with TFDA, CBER, and country-specific regulators.</td>
+                                </tr>
+                                <tr>
+                                    <td>China Partner Risk</td>
+                                    <td>Limits scale execution and hospital access.</td>
+                                    <td>Select partner with urology, cell therapy, and Class 3A hospital experience.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="footer-note">
+                    The full report extends this cockpit into detailed country forecasts, source-linked assumptions, treatment funnel calculations, clinical endpoint mapping, competitive benchmarking, regulatory strategy, and commercialization recommendations for EliteCell Bio.
+                </div>
+            </section>
         </div>
     </main>
 
     <script>
-        const chartData = {
-            labels: ["2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035"],
-            datasets: [
-                {
-                    label: "Taiwan ($Mn)",
-                    data: [0, 0, 0.14, 0.31, 0.50, 0.73, 0.98, 1.28, 1.61, 1.73, 1.87],
-                    backgroundColor: "#D9A8BC",
-                    borderColor: "#B56B87",
-                    borderWidth: 1
+        const BURGUNDY = "#5B0F2E";
+        const BURGUNDY_DARK = "#3A071D";
+        const BURGUNDY_SOFT = "#8A2E4D";
+        const BURGUNDY_MID = "#A94D6A";
+        const ROSE = "#D9A8BC";
+        const ROSE_DARK = "#B56B87";
+        const TEXT = "#334155";
+        const GRID = "rgba(148, 163, 184, 0.25)";
+
+        const chartInstances = {};
+
+        function destroyChart(id) {
+            if (chartInstances[id]) {
+                chartInstances[id].destroy();
+                delete chartInstances[id];
+            }
+        }
+
+        function getCanvas(id) {
+            const canvas = document.getElementById(id);
+            if (!canvas || typeof Chart === "undefined") return null;
+            return canvas.getContext("2d");
+        }
+
+        function defaultOptions(yTitle) {
+            return {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: "#475569", font: { size: 12 } }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: !!yTitle,
+                            text: yTitle || "",
+                            color: BURGUNDY,
+                            font: { weight: "bold" }
+                        },
+                        grid: { color: GRID },
+                        ticks: { color: "#475569" }
+                    }
                 },
-                {
-                    label: "China ($Mn)",
-                    data: [0, 0, 0, 0, 0.19, 0.42, 0.70, 1.03, 1.43, 1.89, 2.42],
-                    backgroundColor: "#8A2E4D",
-                    borderColor: "#6F1D3B",
-                    borderWidth: 1
-                },
-                {
-                    label: "Expansion Markets ($Mn)",
-                    data: [0, 0, 0, 0, 0, 0, 0, 0.47, 1.28, 2.18, 3.14],
-                    backgroundColor: "#B97991",
-                    borderColor: "#8A2E4D",
-                    borderWidth: 1
-                },
-                {
-                    label: "United States ($Mn)",
-                    data: [0, 0, 0, 0, 0, 0, 3.02, 6.34, 9.99, 13.97, 18.32],
-                    backgroundColor: "#5B0F2E",
-                    borderColor: "#3A071D",
-                    borderWidth: 1
+                plugins: {
+                    legend: {
+                        position: "bottom",
+                        labels: { color: TEXT, boxWidth: 14, padding: 18 }
+                    },
+                    tooltip: {
+                        mode: "index",
+                        intersect: false
+                    }
                 }
-            ]
-        };
+            };
+        }
 
-        let revenueChartInstance = null;
+        function initMixChart() {
+            const id = "mixChart";
+            const ctx = getCanvas(id);
+            if (!ctx) return;
+            destroyChart(id);
 
-        function initChart() {
-            const canvas = document.getElementById("revenueChart");
-            if (!canvas || typeof Chart === "undefined") {
-                return;
-            }
+            chartInstances[id] = new Chart(ctx, {
+                type: "doughnut",
+                data: {
+                    labels: ["United States", "China", "Taiwan", "Expansion Markets"],
+                    datasets: [{
+                        data: [71.1, 9.4, 7.2, 12.2],
+                        backgroundColor: [BURGUNDY, BURGUNDY_SOFT, ROSE_DARK, ROSE],
+                        borderColor: "#FFFFFF",
+                        borderWidth: 3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: "62%",
+                    plugins: {
+                        legend: {
+                            position: "bottom",
+                            labels: { color: TEXT, boxWidth: 14, padding: 18 }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.label + ": " + context.parsed.toFixed(1) + "%";
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
 
-            const ctx = canvas.getContext("2d");
+        function initMarketCaptureChart() {
+            const id = "marketCaptureChart";
+            const ctx = getCanvas(id);
+            if (!ctx) return;
+            destroyChart(id);
 
-            if (revenueChartInstance) {
-                revenueChartInstance.destroy();
-            }
-
-            revenueChartInstance = new Chart(ctx, {
+            chartInstances[id] = new Chart(ctx, {
                 type: "bar",
-                data: chartData,
+                data: {
+                    labels: ["2030", "2035"],
+                    datasets: [
+                        {
+                            label: "Total Regenerative ED Market",
+                            data: [3.17, 137.65],
+                            backgroundColor: ROSE,
+                            borderColor: ROSE_DARK,
+                            borderWidth: 1
+                        },
+                        {
+                            label: "EliteCell Revenue",
+                            data: [1.14, 25.75],
+                            backgroundColor: BURGUNDY,
+                            borderColor: BURGUNDY_DARK,
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: defaultOptions("Revenue (US$ Mn)")
+            });
+        }
+
+        function initCountryFunnelChart() {
+            const id = "countryFunnelChart";
+            const ctx = getCanvas(id);
+            if (!ctx) return;
+            destroyChart(id);
+
+            chartInstances[id] = new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: ["ED Burden", "Diagnosed", "Treated", "PDE5 Users", "PDE5 Inadequate Responders"],
+                    datasets: [
+                        {
+                            label: "Taiwan",
+                            data: [2.66, 0.93, 0.63, 0.52, 0.166],
+                            backgroundColor: ROSE,
+                            borderColor: ROSE_DARK,
+                            borderWidth: 1
+                        },
+                        {
+                            label: "China",
+                            data: [125.80, 28.93, 16.78, 13.43, 4.30],
+                            backgroundColor: BURGUNDY_SOFT,
+                            borderColor: BURGUNDY_DARK,
+                            borderWidth: 1
+                        },
+                        {
+                            label: "United States",
+                            data: [35.95, 17.98, 13.48, 11.33, 3.62],
+                            backgroundColor: BURGUNDY,
+                            borderColor: BURGUNDY_DARK,
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: defaultOptions("Patients (Mn)")
+            });
+        }
+
+        function initRevenueChart() {
+            const id = "revenueChart";
+            const ctx = getCanvas(id);
+            if (!ctx) return;
+            destroyChart(id);
+
+            chartInstances[id] = new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: ["2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035"],
+                    datasets: [
+                        {
+                            label: "Taiwan ($Mn)",
+                            data: [0, 0, 0.14, 0.31, 0.50, 0.73, 0.98, 1.28, 1.61, 1.73, 1.87],
+                            backgroundColor: ROSE,
+                            borderColor: ROSE_DARK,
+                            borderWidth: 1
+                        },
+                        {
+                            label: "China ($Mn)",
+                            data: [0, 0, 0, 0, 0.19, 0.42, 0.70, 1.03, 1.43, 1.89, 2.42],
+                            backgroundColor: BURGUNDY_SOFT,
+                            borderColor: BURGUNDY_DARK,
+                            borderWidth: 1
+                        },
+                        {
+                            label: "Expansion Markets ($Mn)",
+                            data: [0, 0, 0, 0, 0, 0, 0, 0.47, 1.28, 2.18, 3.14],
+                            backgroundColor: BURGUNDY_MID,
+                            borderColor: BURGUNDY_SOFT,
+                            borderWidth: 1
+                        },
+                        {
+                            label: "United States ($Mn)",
+                            data: [0, 0, 0, 0, 0, 0, 3.02, 6.34, 9.99, 13.97, 18.32],
+                            backgroundColor: BURGUNDY,
+                            borderColor: BURGUNDY_DARK,
+                            borderWidth: 1
+                        }
+                    ]
+                },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
@@ -1013,10 +1740,7 @@ DASHBOARD_HTML = r"""
                         x: {
                             stacked: true,
                             grid: { display: false },
-                            ticks: {
-                                color: "#475569",
-                                font: { size: 12 }
-                            }
+                            ticks: { color: "#475569", font: { size: 12 } }
                         },
                         y: {
                             stacked: true,
@@ -1024,17 +1748,13 @@ DASHBOARD_HTML = r"""
                             title: {
                                 display: true,
                                 text: "Revenue (US$ Mn)",
-                                color: "#5B0F2E",
+                                color: BURGUNDY,
                                 font: { weight: "bold" }
                             },
-                            grid: {
-                                color: "rgba(148, 163, 184, 0.25)"
-                            },
+                            grid: { color: GRID },
                             ticks: {
                                 color: "#475569",
-                                callback: function(value) {
-                                    return "$" + value + "M";
-                                }
+                                callback: function(value) { return "$" + value + "M"; }
                             }
                         }
                     },
@@ -1055,15 +1775,140 @@ DASHBOARD_HTML = r"""
                         },
                         legend: {
                             position: "bottom",
-                            labels: {
-                                color: "#334155",
-                                boxWidth: 14,
-                                padding: 18
+                            labels: { color: TEXT, boxWidth: 14, padding: 18 }
+                        }
+                    }
+                }
+            });
+        }
+
+        function initCompetitiveChart() {
+            const id = "competitiveChart";
+            const ctx = getCanvas(id);
+            if (!ctx) return;
+            destroyChart(id);
+
+            chartInstances[id] = new Chart(ctx, {
+                type: "radar",
+                data: {
+                    labels: ["Efficacy Evidence", "Familiarity", "Differentiation"],
+                    datasets: [
+                        {
+                            label: "PDE5 Inhibitors",
+                            data: [5, 5, 2],
+                            borderColor: "#94A3B8",
+                            backgroundColor: "rgba(148,163,184,0.16)"
+                        },
+                        {
+                            label: "Shockwave",
+                            data: [3, 3, 4],
+                            borderColor: ROSE_DARK,
+                            backgroundColor: "rgba(181,107,135,0.16)"
+                        },
+                        {
+                            label: "PRP Clinics",
+                            data: [2, 3, 4],
+                            borderColor: BURGUNDY_MID,
+                            backgroundColor: "rgba(169,77,106,0.16)"
+                        },
+                        {
+                            label: "EliteCell Injectable",
+                            data: [3, 2, 5],
+                            borderColor: BURGUNDY,
+                            backgroundColor: "rgba(91,15,46,0.18)"
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            min: 0,
+                            max: 5,
+                            ticks: { stepSize: 1, color: "#64748B" },
+                            pointLabels: { color: TEXT, font: { size: 13, weight: "bold" } },
+                            grid: { color: GRID },
+                            angleLines: { color: GRID }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: "bottom",
+                            labels: { color: TEXT, boxWidth: 14, padding: 18 }
+                        }
+                    }
+                }
+            });
+        }
+
+        function initSensitivityChart() {
+            const id = "sensitivityChart";
+            const ctx = getCanvas(id);
+            if (!ctx) return;
+            destroyChart(id);
+
+            chartInstances[id] = new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: ["Adoption Rate", "Commercial Reach", "Durability", "Pricing Power", "Launch Timing", "China Partner Risk"],
+                    datasets: [{
+                        label: "Sensitivity Score",
+                        data: [5, 5, 4, 4, 3, 3],
+                        backgroundColor: [BURGUNDY, BURGUNDY, BURGUNDY_SOFT, BURGUNDY_SOFT, ROSE_DARK, ROSE_DARK],
+                        borderColor: BURGUNDY_DARK,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: "y",
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 5,
+                            grid: { color: GRID },
+                            ticks: { color: "#475569", stepSize: 1 }
+                        },
+                        y: {
+                            grid: { display: false },
+                            ticks: { color: "#475569" }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return "Sensitivity score: " + context.parsed.x + " / 5";
+                                }
                             }
                         }
                     }
                 }
             });
+        }
+
+        function initChartsForSection(sectionId) {
+            setTimeout(function() {
+                if (sectionId === "snapshot") {
+                    initMixChart();
+                    initMarketCaptureChart();
+                }
+                if (sectionId === "country") {
+                    initCountryFunnelChart();
+                }
+                if (sectionId === "forecast") {
+                    initRevenueChart();
+                }
+                if (sectionId === "competition") {
+                    initCompetitiveChart();
+                }
+                if (sectionId === "roadmap") {
+                    initSensitivityChart();
+                }
+            }, 120);
         }
 
         function navigate(sectionId) {
@@ -1072,34 +1917,24 @@ DASHBOARD_HTML = r"""
             });
 
             const activeButton = document.getElementById("nav-" + sectionId);
-            if (activeButton) {
-                activeButton.classList.add("nav-active");
-            }
+            if (activeButton) activeButton.classList.add("nav-active");
 
             document.querySelectorAll(".content-section").forEach(function(section) {
                 section.classList.remove("active");
             });
 
             const activeSection = document.getElementById(sectionId);
-            if (activeSection) {
-                activeSection.classList.add("active");
-            }
+            if (activeSection) activeSection.classList.add("active");
 
-            if (sectionId === "forecast") {
-                setTimeout(initChart, 80);
-            }
+            initChartsForSection(sectionId);
         }
 
         window.addEventListener("load", function() {
-            setTimeout(function() {
-                if (document.getElementById("forecast").classList.contains("active")) {
-                    initChart();
-                }
-            }, 120);
+            initChartsForSection("executive");
         });
     </script>
 </body>
 </html>
 """
 
-components.html(DASHBOARD_HTML, height=980, scrolling=True)
+components.html(DASHBOARD_HTML, height=1100, scrolling=True)
