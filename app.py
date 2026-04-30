@@ -11,93 +11,135 @@ st.set_page_config(
 # -----------------------------------------------------------------------------
 # Lightweight Login Gate
 # -----------------------------------------------------------------------------
-# Keep this password aligned with your earlier dashboard code. If that password
-# was different, update only this line before deployment.
 APP_PASSWORD = "SMR@2026"
 
 
 def render_login() -> None:
-    """Render a polished login page before the dashboard is loaded."""
+    """Render a compact, centered login page before the dashboard is loaded."""
     st.markdown(
         """
         <style>
         .stApp {
             background:
-                radial-gradient(circle at top right, rgba(91,15,46,0.18), transparent 28%),
-                linear-gradient(135deg, #3A071D 0%, #5B0F2E 48%, #8A2E4D 100%);
+                radial-gradient(circle at top right, rgba(255,255,255,0.08), transparent 28%),
+                linear-gradient(135deg, #340719 0%, #5B0F2E 52%, #8A2E4D 100%);
         }
-        [data-testid="stHeader"] { background: transparent; }
-        [data-testid="stToolbar"] { display: none; }
-        .login-shell {
-            min-height: 78vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 32px 16px;
+
+        [data-testid="stHeader"],
+        [data-testid="stToolbar"],
+        [data-testid="stDecoration"],
+        [data-testid="stStatusWidget"],
+        #MainMenu,
+        footer {
+            visibility: hidden !important;
+            height: 0 !important;
         }
+
+        section[data-testid="stSidebar"] {
+            display: none !important;
+        }
+
+        .block-container {
+            max-width: 640px !important;
+            padding-top: 7vh !important;
+            padding-bottom: 3rem !important;
+        }
+
         .login-card {
-            width: min(760px, 100%);
+            width: 100%;
             background: rgba(255,255,255,0.96);
-            border: 1px solid rgba(255,255,255,0.35);
-            border-radius: 30px;
-            box-shadow: 0 28px 80px rgba(20, 5, 13, 0.32);
+            border: 1px solid rgba(255,255,255,0.30);
+            border-radius: 28px;
+            box-shadow: 0 28px 80px rgba(20, 5, 13, 0.34);
             overflow: hidden;
+            margin: 0 auto 18px auto;
         }
+
         .login-hero {
             background:
-                radial-gradient(circle at top right, rgba(255,255,255,0.20), transparent 35%),
-                linear-gradient(135deg, #340719 0%, #5B0F2E 65%, #8A2E4D 100%);
+                radial-gradient(circle at top right, rgba(255,255,255,0.20), transparent 34%),
+                linear-gradient(135deg, #340719 0%, #5B0F2E 66%, #8A2E4D 100%);
             color: #fff;
-            padding: 34px 38px;
+            padding: 30px 34px 28px 34px;
         }
+
         .login-eyebrow {
-            font-size: 12px;
+            font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 0.16em;
+            letter-spacing: 0.15em;
             color: rgba(255,255,255,0.74);
             font-weight: 800;
-            margin-bottom: 12px;
+            margin-bottom: 11px;
         }
+
         .login-title {
-            font-size: 32px;
+            font-size: 28px;
             line-height: 1.12;
             font-weight: 900;
             margin: 0 0 12px 0;
         }
+
         .login-subtitle {
-            font-size: 15px;
+            font-size: 14px;
             line-height: 1.58;
             color: rgba(255,255,255,0.86);
-            max-width: 620px;
+            max-width: 540px;
         }
-        .login-body {
-            padding: 30px 38px 34px 38px;
+
+        div[data-testid="stForm"] {
+            max-width: 560px !important;
+            margin: 0 auto !important;
+            background: rgba(255,255,255,0.96) !important;
+            border: 1px solid rgba(255,255,255,0.36) !important;
+            border-radius: 24px !important;
+            box-shadow: 0 18px 52px rgba(20, 5, 13, 0.24) !important;
+            padding: 26px 30px 30px 30px !important;
         }
-        .login-footer {
-            margin-top: 18px;
-            color: #64748B;
-            font-size: 12px;
-            line-height: 1.55;
-        }
-        div[data-testid="stForm"] { border: 0; padding: 0; }
+
         .stTextInput label {
             color: #5B0F2E !important;
             font-weight: 800 !important;
+            font-size: 13px !important;
         }
+
+        .stTextInput input {
+            height: 44px !important;
+            border-radius: 12px !important;
+            border: 1px solid #E2E8F0 !important;
+            background: #F8FAFC !important;
+            font-size: 14px !important;
+        }
+
+        .stTextInput input:focus {
+            border-color: #8A2E4D !important;
+            box-shadow: 0 0 0 2px rgba(91,15,46,0.12) !important;
+        }
+
         .stButton > button {
             width: 100%;
             background: linear-gradient(135deg, #3A071D 0%, #5B0F2E 100%);
             color: #fff;
             border: 0;
             border-radius: 14px;
-            padding: 0.75rem 1rem;
+            padding: 0.72rem 1rem;
             font-weight: 850;
             letter-spacing: 0.02em;
+            margin-top: 4px;
         }
+
         .stButton > button:hover {
             color: #fff;
             border: 0;
             box-shadow: 0 12px 28px rgba(91,15,46,0.25);
+        }
+
+        .login-footer-copy {
+            max-width: 560px;
+            margin: 14px auto 0 auto;
+            text-align: center;
+            color: rgba(255,255,255,0.78);
+            font-size: 12px;
+            line-height: 1.55;
         }
         </style>
         """,
@@ -106,17 +148,16 @@ def render_login() -> None:
 
     st.markdown(
         """
-        <div class="login-shell">
-            <div class="login-card">
-                <div class="login-hero">
-                    <div class="login-eyebrow">Strategic Market Research | Controlled Dashboard Access</div>
-                    <div class="login-title">Global Injectable Regenerative Therapy for ED Market</div>
-                    <div class="login-subtitle">
-                        Secure preview cockpit for EliteCell Bio covering market size, patient funnel, pricing economics,
-                        adoption pathways, regulatory roadmap, competitive positioning, and 2025–2035 revenue outlook.
-                    </div>
+        <div class="login-card">
+            <div class="login-hero">
+                <div class="login-eyebrow">Strategic Market Research | Controlled Dashboard Access</div>
+                <div class="login-title">Global Injectable Regenerative Therapy for ED Market</div>
+                <div class="login-subtitle">
+                    Secure preview cockpit for EliteCell Bio covering market size, patient funnel, pricing economics,
+                    adoption pathways, regulatory roadmap, competitive positioning, and 2025–2035 revenue outlook.
                 </div>
-                <div class="login-body">
+            </div>
+        </div>
         """,
         unsafe_allow_html=True,
     )
@@ -128,12 +169,9 @@ def render_login() -> None:
 
     st.markdown(
         """
-                    <div class="login-footer">
-                        Access is intended for controlled client preview only. Data shown in the dashboard is drawn from the
-                        prepared market model and summarized for executive review.
-                    </div>
-                </div>
-            </div>
+        <div class="login-footer-copy">
+            Access is intended for controlled client preview only. Data shown in the dashboard is drawn from the
+            prepared market model and summarized for executive review.
         </div>
         """,
         unsafe_allow_html=True,
@@ -151,6 +189,22 @@ def render_login() -> None:
 if not st.session_state.get("dashboard_authenticated", False):
     render_login()
     st.stop()
+
+
+st.markdown(
+    """
+    <style>
+    [data-testid="stToolbar"], [data-testid="stDecoration"], [data-testid="stStatusWidget"], #MainMenu, footer {
+        visibility: hidden !important;
+        height: 0 !important;
+    }
+    [data-testid="stHeader"] {
+        background: transparent !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 with st.sidebar:
     st.markdown("### EliteCell Bio Dashboard")
@@ -181,8 +235,7 @@ body{height:100vh;display:flex;flex-direction:row}
 .brand{padding:26px 24px 22px;border-bottom:1px solid rgba(255,255,255,.13)}
 .brand h1{font-size:21px;line-height:1.14;margin:0;font-weight:880}.brand p{margin:10px 0 0;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.72);font-weight:780}
 .nav{padding:12px 0;overflow-y:auto}.nav button{width:100%;text-align:left;border:0;background:transparent;color:rgba(255,255,255,.76);padding:11.5px 22px;font-size:13.25px;cursor:pointer;border-left:5px solid transparent;transition:.2s ease}.nav button:hover{background:rgba(255,255,255,.08);color:white}.nav button.nav-active{background:rgba(255,255,255,.145);color:white;border-left-color:#F6D6E5;font-weight:780}
-.sidebar-footer{margin-top:auto;padding:17px 22px 23px;border-top:1px solid rgba(255,255,255,.12);font-size:12px;line-height:1.45;color:rgba(255,255,255,.70)}
-.dashboard-footer{position:fixed;left:300px;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);box-shadow:0 -12px 30px rgba(15,23,42,.06);padding:10px 30px;display:flex;gap:16px;align-items:center;justify-content:space-between;color:var(--muted);font-size:12px;line-height:1.35}.dashboard-footer strong{color:var(--burgundy);font-weight:850}.dashboard-footer .right{white-space:nowrap;color:var(--burgundy-soft);font-weight:800}.dashboard-footer .dot{width:7px;height:7px;background:var(--burgundy);border-radius:999px;display:inline-block;margin-right:7px}
+.sidebar-footer{margin-top:auto;padding:17px 22px 23px;border-top:1px solid rgba(255,255,255,.12);font-size:12px;line-height:1.45;color:rgba(255,255,255,.70)}.dashboard-footer{position:fixed;left:300px;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);box-shadow:0 -12px 30px rgba(15,23,42,.06);padding:10px 30px;display:flex;gap:16px;align-items:center;justify-content:space-between;color:var(--muted);font-size:12px;line-height:1.35}.dashboard-footer strong{color:var(--burgundy);font-weight:850}.dashboard-footer .right{white-space:nowrap;color:var(--burgundy-soft);font-weight:800}.dashboard-footer .dot{width:7px;height:7px;background:var(--burgundy);border-radius:999px;display:inline-block;margin-right:7px}
 main{flex:1;height:100vh;overflow-y:auto;background:radial-gradient(circle at top right,rgba(91,15,46,.10),transparent 28%),linear-gradient(180deg,#fff 0%,#F8FAFC 44%,#F3F5F8 100%)}
 .page{max-width:1240px;margin:0 auto;padding:34px 36px 95px}.content-section{display:none;animation:fadeIn .25s ease-in-out}.content-section.active{display:block}@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .hero{background:radial-gradient(circle at top right,rgba(255,255,255,.18),transparent 30%),linear-gradient(135deg,var(--burgundy-dark) 0%,var(--burgundy) 62%,var(--burgundy-soft) 100%);color:white;padding:34px 36px;border-radius:26px;box-shadow:0 18px 48px rgba(91,15,46,.22);margin-bottom:28px}.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.78);font-weight:820;margin-bottom:12px}.hero h2{margin:0;font-size:38px;line-height:1.08;font-weight:900;max-width:1020px}.hero p{max-width:1020px;margin:16px 0 0;color:rgba(255,255,255,.88);font-size:17px;line-height:1.58}.hero .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.pill{border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.10);border-radius:999px;padding:8px 12px;color:#fff;font-size:12px;font-weight:750}
@@ -194,7 +247,7 @@ main{flex:1;height:100vh;overflow-y:auto;background:radial-gradient(circle at to
 .funnel-panel{background:linear-gradient(135deg,var(--burgundy-dark),var(--burgundy));padding:28px;border-radius:22px;box-shadow:0 18px 46px rgba(91,15,46,.22);margin-bottom:24px}.funnel-panel h3{color:white;margin:0 0 22px;padding-bottom:13px;border-bottom:1px solid rgba(255,255,255,.18);font-size:20px}.funnel-steps{display:flex;flex-direction:column;gap:12px}.funnel-step{color:white;border-radius:14px;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;border-left:5px solid rgba(255,255,255,.45);transition:.25s ease;box-shadow:0 12px 24px rgba(0,0,0,.10)}.funnel-step:hover{transform:translateX(8px)}.funnel-step h4{margin:0 0 4px;font-size:15px;font-weight:850}.funnel-step p{margin:0;font-size:12px;color:rgba(255,255,255,.78)}.funnel-value{font-size:19px;font-weight:880;white-space:nowrap;padding-left:18px}.funnel-1{width:100%;background:rgba(255,255,255,.17)}.funnel-2{width:91%;margin-left:auto;background:rgba(255,255,255,.22)}.funnel-3{width:76%;margin-left:auto;background:rgba(255,255,255,.28)}.funnel-4{width:59%;margin-left:auto;background:var(--burgundy-soft)}.funnel-5{width:43%;margin-left:auto;background:#A43A5D}
 .geo-card,.scenario-card,.endpoint-card,.step-card{background:white;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 12px 34px rgba(15,23,42,.06);display:flex;flex-direction:column}.geo-head{padding:18px 20px;background:var(--rose-light);border-bottom:1px solid var(--line)}.geo-head.premium{background:linear-gradient(135deg,var(--burgundy-dark),var(--burgundy));color:white}.geo-head h3{margin:0;font-size:21px;font-weight:870}.geo-head p{margin:6px 0 0;color:var(--burgundy);font-size:12px;text-transform:uppercase;letter-spacing:.10em;font-weight:850}.geo-head.premium p{color:rgba(255,255,255,.78)}.geo-body{padding:22px}.geo-block{margin-bottom:18px}.geo-block:last-child{margin-bottom:0}.geo-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.10em;font-weight:840;margin-bottom:5px}.geo-value{font-size:20px;color:var(--burgundy);font-weight:880}.geo-text{font-size:14px;line-height:1.6;color:#475569}
 .timeline{position:relative;padding-left:18px}.timeline:before{content:"";position:absolute;top:8px;bottom:8px;left:8px;width:3px;background:linear-gradient(180deg,var(--burgundy),var(--rose));border-radius:999px}.timeline-item{position:relative;padding:0 0 18px 28px}.timeline-dot{position:absolute;left:-17px;top:4px;width:16px;height:16px;background:var(--burgundy);border:3px solid white;box-shadow:0 0 0 3px var(--rose);border-radius:50%}.timeline-card{background:white;border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:0 10px 26px rgba(15,23,42,.05)}.timeline-date{color:var(--burgundy-soft);font-size:12px;text-transform:uppercase;letter-spacing:.09em;font-weight:850;margin-bottom:5px}.timeline-title{color:var(--burgundy);font-size:17px;font-weight:850;margin-bottom:5px}.timeline-text{color:#475569;font-size:14px;line-height:1.55}.scenario-card{padding:22px}.scenario-title{font-size:19px;color:var(--burgundy);font-weight:870;margin-bottom:8px}.scenario-value{font-size:34px;color:var(--burgundy);font-weight:900;margin-bottom:8px}.scenario-text{color:#475569;line-height:1.55;font-size:14px}.endpoint-card,.step-card{padding:20px}.endpoint-title,.step-title{color:var(--burgundy);font-weight:870;font-size:17px;margin-bottom:9px}.endpoint-text,.step-text{color:#475569;font-size:14px;line-height:1.58}.step-number{width:34px;height:34px;border-radius:50%;background:var(--burgundy);color:white;display:flex;align-items:center;justify-content:center;font-weight:900;margin-bottom:12px}.heat{display:inline-block;border-radius:999px;padding:5px 9px;font-size:12px;font-weight:800}.heat-high{background:#F3E7ED;color:var(--burgundy)}.heat-med{background:#F8EEF3;color:var(--burgundy-soft)}.heat-low{background:#F7F7F8;color:#64748B}.footer-note{margin-top:24px;padding:18px 20px;background:white;border:1px solid var(--line);border-radius:18px;color:var(--muted);font-size:13px;line-height:1.6}
-@media(max-width:980px){body{flex-direction:column;overflow:auto;height:auto}.sidebar{width:100%;min-width:100%;height:auto}.brand{padding:20px 20px 16px}.nav{display:flex;overflow-x:auto;padding:8px}.nav button{white-space:nowrap;border-left:0;border-bottom:4px solid transparent;padding:12px 14px;font-size:13px}.nav button.nav-active{border-left:0;border-bottom-color:#F6D6E5}.sidebar-footer{display:none}.dashboard-footer{left:0;position:fixed;padding:9px 14px;font-size:11px;align-items:flex-start}.dashboard-footer .right{display:none}main{height:auto;overflow:visible}.page{padding:22px 18px 60px}.hero h2{font-size:28px}.hero{padding:26px 24px}.kpi-grid,.kpi-grid.four,.kpi-grid.two,.three-grid,.two-grid,.four-grid{grid-template-columns:1fr}.funnel-step{width:100%!important;margin-left:0!important}.chart-container{height:340px}}
+@media(max-width:980px){.dashboard-footer{left:0;position:fixed;padding:9px 14px;font-size:11px;align-items:flex-start}.dashboard-footer .right{display:none}body{flex-direction:column;overflow:auto;height:auto}.sidebar{width:100%;min-width:100%;height:auto}.brand{padding:20px 20px 16px}.nav{display:flex;overflow-x:auto;padding:8px}.nav button{white-space:nowrap;border-left:0;border-bottom:4px solid transparent;padding:12px 14px;font-size:13px}.nav button.nav-active{border-left:0;border-bottom-color:#F6D6E5}.sidebar-footer{display:none}main{height:auto;overflow:visible}.page{padding:22px 18px 60px}.hero h2{font-size:28px}.hero{padding:26px 24px}.kpi-grid,.kpi-grid.four,.kpi-grid.two,.three-grid,.two-grid,.four-grid{grid-template-columns:1fr}.funnel-step{width:100%!important;margin-left:0!important}.chart-container{height:340px}}
 </style>
 </head>
 <body>
@@ -308,11 +361,6 @@ main{flex:1;height:100vh;overflow-y:auto;background:radial-gradient(circle at to
 </section>
 
 </div></main>
-
-<div class="dashboard-footer">
-  <div><span class="dot"></span><strong>Strategic Market Research</strong> | EliteCell Bio market preview dashboard | Global Injectable Regenerative Therapy for ED Market (2025–2035)</div>
-  <div class="right">Confidential client preview · April 2026</div>
-</div>
 <script>
 const BURGUNDY="#5B0F2E", BURGUNDY_DARK="#3A071D", BURGUNDY_SOFT="#8A2E4D", BURGUNDY_MID="#A94D6A", ROSE="#D9A8BC", ROSE_DARK="#B56B87", TEXT="#334155", GRID="rgba(148,163,184,.25)";
 const chartInstances={};
@@ -339,8 +387,12 @@ function initChartsForSection(sectionId){setTimeout(()=>{if(sectionId==="snapsho
 function navigate(sectionId){document.querySelectorAll(".nav button").forEach(btn=>btn.classList.remove("nav-active"));const activeButton=document.getElementById("nav-"+sectionId);if(activeButton)activeButton.classList.add("nav-active");document.querySelectorAll(".content-section").forEach(section=>section.classList.remove("active"));const activeSection=document.getElementById(sectionId);if(activeSection)activeSection.classList.add("active");initChartsForSection(sectionId);}
 window.addEventListener("load",()=>initChartsForSection("executive"));
 </script>
+<div class="dashboard-footer">
+  <div><span class="dot"></span><strong>Strategic Market Research</strong> | Global Injectable Regenerative Therapy for ED Market (2025–2035) | Confidential Preview</div>
+  <div class="right">EliteCell Bio Market Cockpit · April 2026</div>
+</div>
 </body>
 </html>
 '''
 
-components.html(DASHBOARD_HTML, height=1220, scrolling=True)
+components.html(DASHBOARD_HTML, height=1180, scrolling=True)
